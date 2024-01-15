@@ -1,32 +1,20 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
+import ToDoInput from "./components/ToDoInput.vue";
+import ToDoList from "./components/ToDoList.vue";
 </script>
 
 <template>
-  <h1>TO-DO LIST</h1>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-    <input type="checkbox" name="" id="" />
+  <div
+    class="flex items-center flex-col bg-t-orange py-16 max-h-full min-h-screen"
+  >
+    <h1 class="font-mono text-5xl font-bold tracking-wide text-t-white">
+      TO-DO LIST
+    </h1>
+    <ToDoInput />
+    <ToDoList />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
