@@ -43,8 +43,7 @@ export default {
         v-model="todoText"
         @change="todoChange"
         @keyup.enter="
-          editTodo({ todo, value: todoText });
-          edit();
+          todoText != '' ? editTodo({ todo, value: todoText }) + edit() : edit()
         "
         @keyup.esc="edit"
       />
@@ -53,7 +52,11 @@ export default {
         <button
           class="w-9 h-9 rounded-xl flex justify-center items-center"
           @click="
-            isEdit ? editTodo({ todo, value: todoText }) + edit() : edit()
+            isEdit
+              ? todoText != ''
+                ? editTodo({ todo, value: todoText }) + edit()
+                : edit()
+              : edit()
           "
           v-if="!todo.done"
         >
