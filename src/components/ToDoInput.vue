@@ -1,14 +1,35 @@
+<script >
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      todoText: "",
+    };
+  },
+  methods: {
+    ...mapActions(["addTodo"]),
+    addTodoI() {
+      if (this.todoText != "") {
+        this.addTodo(this.todoText);
+        this.todoText = "";
+      }
+    },
+  },
+};
+</script>
+
 <template>
   <div class="w-1/2 mt-12 mb-3 flex flex-row justify-between gap-3">
     <input
-      class="w-10/12 h-12 px-4 py-3 text-t-blue text-lg placeholder:text-t-pink rounded-lg bg-t-white border-transparent focus:border-t-pink focus:bg-white focus:ring-0"
+      class="w-10/12 h-12 px-4 py-3 text-t-blue text-lg placeholder:text-t-pink rounded-lg bg-t-white border-transparent focus:border-t-orange focus:bg-white focus:ring-0"
       type="text"
       placeholder="ADD TODO"
-      name=""
-      id=""
+      v-model="todoText"
     />
     <button
-      class="flex flex-row gap-1 justify-center items-center w-2/12 h-12 text-t-white font-semibold text-xl bg-t-pink rounded-lg"
+      @click="addTodoI"
+      class="flex flex-row gap-1 justify-center items-center w-2/12 h-12 text-t-white font-semibold text-xl bg-t-pink rounded-lg hover:bg-t-purple"
     >
       <p>ADD</p>
       <svg
@@ -26,8 +47,6 @@
   </div>
 </template>
 
-<script setup>
-</script>
 
 <style scoped>
 </style>
